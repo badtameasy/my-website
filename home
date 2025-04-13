@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badtameasy - Bold. Rebellious. You.</title>
+    <meta name="description" content="Badtameasy - Trendy, affordable fashion for the bold and rebellious. Shop our collection of t-shirts, joggers, hoodies and customize your own style.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+        }
+        
+        .badta-yellow {
+            background-color: #FFD700;
+        }
+        
+        .badta-black {
+            background-color: #000000;
+        }
+        
+        .badta-pink {
+            background-color: #FF1493;
+        }
+        
+        .badta-blue {
+            background-color: #00BFFF;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #FF1493 100%);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-file-input::-webkit-file-upload-button {
+            visibility: hidden;
+        }
+        
+        .custom-file-input::before {
+            content: 'Upload Your Design';
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            outline: none;
+            white-space: nowrap;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .custom-file-input:hover::before {
+            background: #000;
+            color: #FFD700;
+        }
+        
+        .nav-link:hover {
+            color: #FFD700;
+            transform: scale(1.05);
+        }
+        
+        .size-option {
+            transition: all 0.2s;
+        }
+        
+        .size-option:hover {
+            background-color: #FFD700 !important;
+            color: #000 !important;
+        }
+        
+        .size-option.selected {
+            background-color: #000 !important;
+            color: #FFD700 !important;
+        }
+        
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #FF1493;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="bg-black text-white text-sm py-2 px-4 flex justify-between items-center">
+        <div class="flex space-x-4">
+            <span><i class="fas fa-truck mr-1"></i> Free shipping on orders over ₹499</span>
+            <span><i class="fas fa-phone mr-1"></i> Customer Support: +91 9876543210</span>
+        </div>
+        <div class="hidden md:flex space-x-4">
+            <a href="#" class="hover:text-yellow-300"><i class="fas fa-user mr-1"></i> Account</a>
+            <a href="#" class="hover:text-yellow-300"><i class="fas fa-heart mr-1"></i> Wishlist</a>
+            <a href="#" class="hover:text-yellow-300"><i class="fas fa-tag mr-1"></i> Offers</a>
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="index.html" class="text-3xl font-extrabold">
+                    <span class="badta-yellow px-2 py-1 text-black">BADTA</span>
+                    <span class="badta-black px-2 py-1 text-white">MEASY</span>
+                </a>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="hidden md:block flex-1 mx-8">
+                <div class="relative">
+                    <input type="text" placeholder="Search for products..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    <button class="absolute right-0 top-0 h-full px-4 text-gray-600 hover:text-black">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Navigation Icons -->
+            <div class="flex items-center space-x-6">
+                <a href="#" class="relative">
+                    <i class="fas fa-heart text-xl"></i>
+                </a>
+                <a href="#" class="relative">
+                    <i class="fas fa-user text-xl"></i>
+                </a>
+                <a href="#" class="relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="cart-badge">3</span>
+                </a>
+                <button class="md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Search -->
+        <div class="md:hidden px-4 pb-3">
+            <div class="relative">
+                <input type="text" placeholder="Search for products..." class="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                <button class="absolute right-0 top-0 h-full px-4 text-gray-600 hover:text-black">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="hidden md:block bg-black text-white">
+            <div class="container mx-auto px-4">
+                <ul class="flex space-x-8 py-3">
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">MEN</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">WOMEN</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">T-SHIRTS</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">HOODIES</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">JOGGERS</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">ACCESSORIES</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">CUSTOMIZE</a></li>
+                    <li><a href="#" class="nav-link font-medium hover:text-yellow-300">SALE</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">BE BOLD. BE BADTAMEASY.</h1>
+                <p class="text-xl mb-8">Express yourself with our limited edition rebellious collection. Because normal is boring.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition duration-300">SHOP NOW</a>
+                    <a href="#" class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-black hover:text-white transition duration-300">CUSTOMIZE YOURS</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Badtameasy Model" class="rounded-lg shadow-2xl floating max-w-md w-full">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8 text-center">SHOP BY CATEGORY</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-yellow-100 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="T-Shirts" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">T-SHIRTS</h3>
+                        <p class="text-sm text-gray-600">From ₹399</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-pink-100 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Oversized Tees" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">OVERSIZED TEES</h3>
+                        <p class="text-sm text-gray-600">From ₹499</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1602810318383-1f897186d2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Hoodies" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">HOODIES</h3>
+                        <p class="text-sm text-gray-600">From ₹899</p>
+                    </div>
+                </a>
+                <a href="#" class="category-card bg-gray-100 rounded-lg overflow-hidden hover:shadow-lg transition duration-300">
+                    <div class="h-48 bg-black flex items-center justify-center">
+                        <img src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Joggers" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-4 text-center">
+                        <h3 class="font-bold text-lg">JOGGERS</h3>
+                        <p class="text-sm text-gray-600">From ₹799</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Collection -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold">TRENDING NOW</h2>
+                <a href="#" class="text-black font-bold hover:underline">VIEW ALL</a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-black px-2 py-1 text-xs font-bold rounded">NEW</div>
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2 text-center">
+                            QUICK VIEW
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Rebel Heart Tee</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="font-bold">₹499</span>
+                            <span class="text-sm text-gray-500 line-through">₹799</span>
+                            <span class="text-sm font-bold text-green-600">36% OFF</span>
+                        </div>
+                        <div class="flex mt-2">
+                            <div class="w-4 h-4 rounded-full bg-yellow-400 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-black mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-pink-500"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="No Rules Hoodie" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-pink-500 text-white px-2 py-1 text-xs font-bold rounded">BESTSELLER</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold">No Rules Hoodie</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="font-bold">₹899</span>
+                            <span class="text-sm text-gray-500 line-through">₹1299</span>
+                            <span class="text-sm font-bold text-green-600">30% OFF</span>
+                        </div>
+                        <div class="flex mt-2">
+                            <div class="w-4 h-4 rounded-full bg-black mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-gray-400 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Wild Child Joggers" class="w-full h-64 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Wild Child Joggers</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="font-bold">₹799</span>
+                            <span class="text-sm text-gray-500 line-through">₹999</span>
+                            <span class="text-sm font-bold text-green-600">20% OFF</span>
+                        </div>
+                        <div class="flex mt-2">
+                            <div class="w-4 h-4 rounded-full bg-gray-700 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-green-700 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-red-600"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1602810318383-1f897186d2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Oversized Attitude Tee" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-black text-white px-2 py-1 text-xs font-bold rounded">LIMITED</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Oversized Attitude Tee</h3>
+                        <div class="flex justify-between items-center mt-2">
+                            <span class="font-bold">₹599</span>
+                            <span class="text-sm text-gray-500 line-through">₹899</span>
+                            <span class="text-sm font-bold text-green-600">33% OFF</span>
+                        </div>
+                        <div class="flex mt-2">
+                            <div class="w-4 h-4 rounded-full bg-white border border-gray-300 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-yellow-400 mr-1"></div>
+                            <div class="w-4 h-4 rounded-full bg-pink-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Customization Section -->
+    <section class="py-16 bg-black text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">CREATE YOUR OWN BADTAMEASY</h2>
+                    <p class="text-lg mb-8">Upload your design and we'll print it on premium quality t-shirts. Be unique. Be you.</p>
+                    <div class="bg-white bg-opacity-10 p-6 rounded-lg mb-8">
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">HOW IT WORKS:</h3>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Upload your design (PNG, JPG, SVG)</li>
+                            <li>Choose your t-shirt color and size</li>
+                            <li>Preview your custom design</li>
+                            <li>Checkout and we'll deliver in 7-10 days</li>
+                        </ol>
+                    </div>
+                    <a href="#" class="bg-yellow-400 text-black px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition duration-300 inline-block">START CUSTOMIZING</a>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-900 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-center">DESIGN YOUR T-SHIRT</h3>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">UPLOAD DESIGN</label>
+                            <input type="file" class="custom-file-input w-full p-2 border border-gray-700 rounded cursor-pointer">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">T-SHIRT COLOR</label>
+                            <div class="flex space-x-2">
+                                <div class="w-8 h-8 rounded-full bg-black border-2 border-yellow-400 cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-white border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-yellow-400 border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-pink-500 border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-transparent cursor-pointer"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">SIZE</label>
+                            <div class="grid grid-cols-5 gap-2">
+                                <div class="size-option text-center py-2 border border-gray-700 rounded cursor-pointer hover:border-yellow-400">S</div>
+                                <div class="size-option text-center py-2 border border-gray-700 rounded cursor-pointer hover:border-yellow-400">M</div>
+                                <div class="size-option selected text-center py-2 border border-yellow-400 rounded cursor-pointer">L</div>
+                                <div class="size-option text-center py-2 border border-gray-700 rounded cursor-pointer hover:border-yellow-400">XL</div>
+                                <div class="size-option text-center py-2 border border-gray-700 rounded cursor-pointer hover:border-yellow-400">XXL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800 p-4 rounded-lg mb-6">
+                            <div class="flex justify-between items-center mb-2">
+                                <span>Custom T-Shirt</span>
+                                <span class="font-bold">₹799</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm text-gray-400">
+                                <span>+ Delivery Charges</span>
+                                <span>₹49</span>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-yellow-400 text-black py-3 rounded-full font-bold hover:bg-white transition duration-300">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sale Banner -->
+    <section class="py-12 bg-gradient-to-r from-yellow-400 to-pink-500">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">SUMMER SALE IS LIVE!</h2>
+            <p class="text-xl md:text-2xl mb-8 font-medium">UP TO 60% OFF ON SELECTED STYLES</p>
+            <a href="#" class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-black transition duration-300 inline-block">SHOP THE SALE</a>
+        </div>
+    </section>
+    
+    <!-- Product Detail Example (Hidden by default, would be shown when navigating to product page) -->
+    <div id="product-detail" class="hidden fixed 
+$0inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-6xl w-full max-h-screen overflow-y-auto">
+            <div class="relative">
+                <button id="close-detail" class="absolute top-4 right-4 bg-black text-white w-8 h-8 rounded-full flex items-center justify-center z-10">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="grid md:grid-cols-2 gap-8 p-8">
+                    <!-- Product Images -->
+                    <div>
+                        <div class="mb-4 h-96 bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden">
+                            <img id="main-product-image" src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee" class="w-full h-full object-contain">
+                        </div>
+                        <div class="grid grid-cols-4 gap-2">
+                            <div class="h-20 bg-gray-100 rounded border border-gray-300 cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee" class="w-full h-full object-cover">
+                            </div>
+                            <div class="h-20 bg-gray-100 rounded border border-gray-300 cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee Back" class="w-full h-full object-cover">
+                            </div>
+                            <div class="h-20 bg-gray-100 rounded border border-gray-300 cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee Detail" class="w-full h-full object-cover">
+                            </div>
+                            <div class="h-20 bg-gray-100 rounded border border-gray-300 cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rebel Heart Tee Model" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Info -->
+                    <div>
+                        <h1 class="text-3xl font-bold mb-2">Rebel Heart Tee</h1>
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-sm text-gray-600">142 Reviews</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <span class="text-2xl font-bold">₹499</span>
+                            <span class="text-lg text-gray-500 line-through ml-2">₹799</span>
+                            <span class="text-green-600 font-bold ml-2">36% OFF</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-bold mb-2">COLOR</h3>
+                            <div class="flex space-x-3">
+                                <div class="w-10 h-10 rounded-full bg-yellow-400 border-2 border-black cursor-pointer"></div>
+                                <div class="w-10 h-10 rounded-full bg-black border-2 border-transparent cursor-pointer"></div>
+                                <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-transparent cursor-pointer"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-bold mb-2">SIZE</h3>
+                            <div class="grid grid-cols-5 gap-2">
+                                <div class="size-option text-center py-2 border border-gray-300 rounded cursor-pointer hover:border-black">S</div>
+                                <div class="size-option text-center py-2 border border-gray-300 rounded cursor-pointer hover:border-black">M</div>
+                                <div class="size-option selected text-center py-2 border border-black rounded cursor-pointer">L</div>
+                                <div class="size-option text-center py-2 border border-gray-300 rounded cursor-pointer hover:border-black">XL</div>
+                                <div class="size-option text-center py-2 border border-gray-300 rounded cursor-pointer hover:border-black">XXL</div>
+                            </div>
+                            <a href="#" class="text-sm text-gray-600 mt-2 inline-block hover:underline">Size Guide</a>
+                        </div>
+                        
+                        <div class="flex space-x-4 mb-8">
+                            <button class="bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800 transition duration-300 flex-1">ADD TO CART</button>
+                            <button class="bg-yellow-400 text-black px-8 py-3 rounded-full font-bold hover:bg-yellow-300 transition duration-300 flex-1">BUY NOW</button>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <h3 class="font-bold mb-2">PRODUCT DETAILS</h3>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>100% Premium Cotton</li>
+                                <li>Regular Fit</li>
+                                <li>Machine Wash Cold</li>
+                                <li>Screen Printed Design</li>
+                                <li>Made in India</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 pt-4">
+                            <h3 class="font-bold mb-2">DELIVERY OPTIONS</h3>
+                            <div class="flex items-start mb-2">
+                                <i class="fas fa-truck text-gray-500 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="font-medium">Standard Delivery: 3-5 Business Days</p>
+                                    <p class="text-sm text-gray-600">Free on orders above ₹499</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-bolt text-gray-500 mt-1 mr-2"></i>
+                                <div>
+                                    <p class="font-medium">Express Delivery: 1-2 Business Days</p>
+                                    <p class="text-sm text-gray-600">₹99 extra</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Reviews Section -->
+                <div class="border-t border-gray-200 p-8">
+                    <h2 class="text-2xl font-bold mb-6">CUSTOMER REVIEWS</h2>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <span class="text-3xl font-bold">4.3</span>
+                                <span class="text-gray-500">/5</span>
+                            </div>
+                            <div class="flex-1 ml-8">
+                                <div class="flex items-center mb-1">
+                                    <span class="w-16 text-sm text-gray-600">5 stars</span>
+                                    <div class="flex-1 bg-gray-200 h-2 rounded-full mx-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">70%</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <span class="w-16 text-sm text-gray-600">4 stars</span>
+                                    <div class="flex-1 bg-gray-200 h-2 rounded-full mx-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">20%</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <span class="w-16 text-sm text-gray-600">3 stars</span>
+                                    <div class="flex-1 bg-gray-200 h-2 rounded-full mx-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 5%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">5%</span>
+                                </div>
+                                <div class="flex items-center mb-1">
+                                    <span class="w-16 text-sm text-gray-600">2 stars</span>
+                                    <div class="flex-1 bg-gray-200 h-2 rounded-full mx-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 3%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">3%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-16 text-sm text-gray-600">1 star</span>
+                                    <div class="flex-1 bg-gray-200 h-2 rounded-full mx-2">
+                                        <div class="bg-yellow-400 h-2 rounded-full" style="width: 2%"></div>
+                                    </div>
+                                    <span class="text-sm text-gray-600">2%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="bg-black text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-800 transition duration-300">WRITE A REVIEW</button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="border-b border-gray-200 pb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="font-bold mr-4">Rahul Sharma</span>
+                                <span class="text-sm text-gray-500">2 days ago</span>
+                            </div>
+                            <h4 class="font-bold mb-1">Perfect fit and amazing quality!</h4>
+                            <p class="text-gray-700 mb-2">The fabric is super comfortable and the print quality is excellent. Fits perfectly as per size chart. Will definitely buy more from Badtameasy!</p>
+                            <div class="flex space-x-2">
+                                <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Review photo" class="w-16 h-16 object-cover rounded border border-gray-200">
+                                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Review photo" class="w-16 h-16 object-cover rounded border border-gray-200">
+                            </div>
+                        </div>
+                        
+                        <!-- Review 2 -->
+                        <div class="border-b border-gray-200 pb-6">
+                            <div class="flex items-center mb-2">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="font-bold mr-4">Priya Patel</span>
+                                <span class="text-sm text-gray-500">1 week ago</span>
+                            </div>
+                            <h4 class="font-bold mb-1">Love the design but color slightly different</h4>
+                            <p class="text-gray-700 mb-2">The yellow color is a bit more neon than shown in pictures, but still looks great. Fabric is soft and comfortable. Delivery was fast.</p>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-6 text-black font-bold hover:underline">LOAD MORE REVIEWS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Newsletter -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-2">JOIN THE BADTAMEASY TRIBE</h2>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Get exclusive offers, early access to new drops, and style inspiration straight to your inbox.</p>
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-1 py-3 px-4 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                <button class="bg-black text-white px-6 py-3 rounded-r-full font-bold hover:bg-gray-800 transition duration-300">SUBSCRIBE</button>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4">SHOP</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400">Men's Clothing</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Women's Clothing</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Best Sellers</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Sale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">CUSTOMER SERVICE</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">FAQs</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Shipping Policy</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Returns & Exchanges</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">ABOUT US</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400">Our Story</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Blog</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Careers</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Store Locator</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Wholesale</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">LEGAL</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-yellow-400">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-yellow-400">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4">CONNECT</h3>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-400 hover:text-black"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-400 hover:text-black"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-400 hover:text-black"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-400 hover:text-black"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                    <h4 class="font-bold mb-2">PAYMENT METHODS</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="PayPal" class="h-6">
+                        <img src="https://via.placeholder.com/40x25" alt="UPI" class="h-6">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2023 Badtameasy. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <img src="https://via.placeholder.com/120x40" alt="Google Play" class="h-10">
+                    <img src="https://via.placeholder.com/120x40" alt="App Store" class="h-10">
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Quick view functionality
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('quick-view')) {
+                    document.getElementById('product-detail').classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close product detail
+        document.getElementById('close-detail').addEventListener('click', function() {
+            document.getElementById('product-detail').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Size selection
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from siblings
+                this.parentElement.querySelectorAll('.size-option').forEach(sibling => {
+                    sibling.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+            });
+        });
+        
+        // Image selection in product detail
+        document.querySelectorAll('#product-detail .grid img').forEach(img => {
+            img.addEventListener('click', function() {
+                document.getElementById('main-product-image').src = this.src;
+            });
+        });
+        
+        // Mobile menu toggle (would need more implementation)
+        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
+            // This would toggle a mobile menu
+            console.log('Mobile 
+$0menu toggle clicked');
+        });
+    </script>
+</body>
+</html>
